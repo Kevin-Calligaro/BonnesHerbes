@@ -8,7 +8,7 @@
 
 puts '>>>>>>>>>>>>>>On commence à jardinner<<<<<<<<<<<<<<<<<<<<<'
 
-print '>>>>>>>>>>>>>>cleaning the db<<<<<<<<<<<<<<<<<<<<<'
+puts '>>>>>>>>>>>>>>cleaning the db<<<<<<<<<<<<<<<<<<<<<'
 
 Garden.destroy_all
 User.destroy_all
@@ -20,6 +20,49 @@ Plant.destroy_all
 Harvest.destroy_all
 
 puts 'La db est propre'
+
+
+
+puts '>>>>>>>>>>>>>>>>>> On créé un faux jardinier <<<<<<<<<<<<<<'
+
+user1 = User.create!(
+  email: 'robert.dupont@gmail.com',
+  first_name: 'Robert',
+  last_name: 'Dupont',
+  password: 'secret'
+)
+
+puts 'Bienvenue Robert!'
+
+puts '>>>>>>>>>>>>>>>>>> On créé un jardin <<<<<<<<<<<<<<<<<'
+
+garden1 = Garden.create!(
+  title: 'Le jardin d\'eden',
+  user: user1
+)
+
+puts 'Le sol est aéré'
+
+puts '>>>>>>>>>>>>>>>>>> On créé des planches <<<<<<<<<<<<<<<<<'
+
+
+row1 = Row.create!(
+  length: 1.5,
+  width: 6,
+  garden: garden1
+)
+row2 = Row.create!(
+  length: 1.5,
+  width: 6,
+  garden: garden1
+)
+row3 = Row.create!(
+  length: 1.5,
+  width: 3,
+  garden: garden1
+)
+
+puts 'Les délimitations sont faites'
 
 puts '>>>>>>>>>>>>>>On créé des végétaux <<<<<<<<<<<<<<<<<<<<<'
 
@@ -57,24 +100,33 @@ tomato = Vegetable.create!(
 
 puts 'Merci Dieu!'
 
-print '>>>>>>>>>>>>>>>>>> On créé un faux jardinier <<<<<<<<<<<<<<'
+puts '>>>>>>>>>>>>>>>>>> On créé des relations entre légumes <<<<<<<<<<<<<<<<<'
 
-user1 = User.create!(
-  email: 'robert.dupont@gmail.com',
-  first_name: 'Robert',
-  last_name: 'Dupont',
-  password: 'secret'
+
+relationship10 = Relationship.create!(
+  vegetable1: tomato,
+  vegetable2: tomato,
+  status: "friends"
 )
 
-puts 'Bienvenue Robert!'
 
-print '>>>>>>>>>>>>>>>>>> On créé un jardin <<<<<<<<<<<<<<<<<'
+puts "on à nos amis et énemies!"
 
-garden1 = Garden.create!(
-  title: 'Le jardin d\'eden',
-  user: user1
+puts '>>>>>>>>>>>>>>>>>> On plantes et on sémes des légumes <<<<<<<<<<<<<<<<<'
+
+garden_vegetable_tomato = GardenVegetable.create!(
+  vegetable: tomato,
+  row: row1,
+)
+garden_vegetable_tomato2 = GardenVegetable.create!(
+  vegetable: tomato,
+  row: row1,
+)
+garden_vegetable_tomato3 = GardenVegetable.create!(
+  vegetable: tomato,
+  row: row3,
 )
 
-puts 'La terre est prête'
+puts "Les legumes sont dans le jardin, je repète, les legumes sont dans le jardin"
 
 
