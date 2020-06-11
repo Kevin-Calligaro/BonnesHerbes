@@ -5,7 +5,7 @@ class CreateHarvests < ActiveRecord::Migration[6.0]
       t.boolean :done
       t.integer :quantity
       t.text :comment
-      t.references :vegetable, null: false, foreign_key: true
+      t.references :garden_vegetable, null: false, foreign_key: true
 
       t.timestamps
     end
