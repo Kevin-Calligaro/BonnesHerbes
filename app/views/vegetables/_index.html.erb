@@ -1,0 +1,6 @@
+<div class="border d-flex flex-direction-column">
+  <% @vegetables.each do |vegetable| %>
+    <h5 class="p-2">  <%= vegetable.specie %></h5>
+    <p class="p-2"> A semer du <%= vegetable.seed_start.strftime("%m %b") %> au <%= vegetable.seed_end.strftime("%m %b") %></p>
+  <% end %>
+</div>

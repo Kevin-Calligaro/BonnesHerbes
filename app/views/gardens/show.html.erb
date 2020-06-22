@@ -1,9 +1,14 @@
 
-<h1>Take a look on your garden</h1>
+<h1><%= @garden.title.upcase %></h1>
 
-<div>
-  <% @rows.each do |row| %>
-    <%= row.width %>
-  <% end %>
 
+  <%= render 'rows/show' %>
+  <%= render 'vegetables/index' %>
+
+
+<div class="add-row border m-3">
+  <%= render 'rows/new' %>
+</div>
+
+  <p><%= link_to 'Back Home', gardens_path, class: 'btn btn-primary' %></p>
 </div>

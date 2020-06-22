@@ -112,7 +112,7 @@ relationship10 = Relationship.create!(
 
 puts "on à nos amis et énemies!"
 
-puts '>>>>>>>>>>>>>>>>>> On plantes et on sémes des légumes <<<<<<<<<<<<<<<<<'
+puts '>>>>>>>>>>>>>>>>>> On met des légumes dans le jardin<<<<<<<<<<<<<<<<<'
 
 garden_vegetable_tomato = GardenVegetable.create!(
   vegetable: tomato,
@@ -129,4 +129,28 @@ garden_vegetable_tomato3 = GardenVegetable.create!(
 
 puts "Les legumes sont dans le jardin, je repète, les legumes sont dans le jardin"
 
+puts '>>>>>>>>>>>>>>>>>> On plantes et on sémes des légumes <<<<<<<<<<<<<<<<<'
 
+Seed.create!(
+  garden_vegetable: garden_vegetable_tomato,
+  quantity: 2,
+  date: "2020-06-08",
+  done: false,
+  comment: "j'espère qu'elles vont bien pousser"
+)
+
+Plant.create!(
+  garden_vegetable: garden_vegetable_tomato3,
+  quantity: 5,
+  date: "2020-06-08",
+  done: false,
+  comment: nil
+)
+
+Harvest.create!(
+  garden_vegetable: garden_vegetable_tomato2,
+  quantity: 500,
+  date: "2020-06-08",
+  done: false,
+  comment: nil
+)

@@ -1,0 +1,34 @@
+<div class="d-flex flex-column p-3 ">
+  <% @garden.rows.each do |row| %>
+    <div class=" row d-flex flex-column m-2 p-3 border ">
+    <h5><%= row.id %></h5>
+    <% row.garden_vegetables.each do |garden_vegetable| %>
+        <div class="">
+        <%=  garden_vegetable.vegetable.specie %>
+          <%  garden_vegetable.seeds.each do |seed| %>
+            <%= seed.comment %>
+            <%= seed.date %>
+            <%= seed.quantity %>
+            <%= seed.done %>
+          <% end %>
+          <%=  garden_vegetable.plants.each do |plant| %>
+            <%= plant.comment %>
+            <%= plant.date %>
+            <%= plant.quantity %>
+            <%= plant.done %> %>
+          <% end %>
+
+          <%=  garden_vegetable.harvest.each do |harvest| %>
+            <%= harvest.comment %>
+            <%= harvest.date %>
+            <%= harvest.quantity %>
+            <%= harvest.done %> %>
+          <% end %>
+
+        </div>
+    <% end %>
+          <%= link_to 'Supprimer la planche', row_path(row), class: 'btn btn-outline-danger btn-sm', method: 'delete', data: { confirm: 'Etes vous sur ? Vraiment ?' } %>
+
+    </div>
+  <% end %>
+</div>

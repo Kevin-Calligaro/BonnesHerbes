@@ -5,4 +5,7 @@ class Row < ApplicationRecord
   has_many :seeds,             through: :garden_vegetables
   has_many :plants,            through: :garden_vegetables
   has_many :harvest,           through: :garden_vegetables
+  validates :length, presence: true
+  validates :width, presence: true
+
 end

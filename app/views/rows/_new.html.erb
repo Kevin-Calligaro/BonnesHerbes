@@ -1,0 +1,10 @@
+
+  <div class= "p-3">
+    <h4>Ajouter une planche de culture</h4>
+    <%= simple_form_for ([@garden, @row])  do |f| %>
+      <%= f.input :length, as: :numeric %>
+      <%= f.input :width, as: :numeric %>
+      <%= f.submit 'Créer ma planche', class: 'btn btn-success' %>
+    <% end %>
+
+</div>

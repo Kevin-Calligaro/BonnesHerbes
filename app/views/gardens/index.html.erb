@@ -1,0 +1,14 @@
+<div class="d-flex flex-column p-3 ">
+ <% @gardens.each do |garden| %>
+  <div class="m-2 p-3 border">
+    <%= link_to "Go to", garden_path(garden), class: 'font-weight-bolder text-dark' %>
+    <%= garden.title %>
+
+    <%= link_to 'delete garden', garden_path(garden), class: 'btn btn-outline-danger btn-sm', method: 'delete', data: { confirm: 'Are you sure? Really?' } %>
+
+  </div>
+ <% end %>
+  <p><%= link_to 'New Garden', new_garden_path, class: 'btn btn-primary' %></p>
+
+</div>
+
