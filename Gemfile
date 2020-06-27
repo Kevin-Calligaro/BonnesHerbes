@@ -29,6 +29,9 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+gem "rack", ">= 2.2.3"
+gem "actionpack", ">= 6.0.3.2"
+
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

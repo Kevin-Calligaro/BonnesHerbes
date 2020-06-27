@@ -1,0 +1,8 @@
+<h1>Ajouter un légume</h1>
+<div>
+  <%= simple_form_for [@garden, @row, @garden_vegetable] do |f| %>
+    <%= f.association :vegetable %>
+
+    <%= f.submit 'Ajouter un Légume', class: 'btn btn-success' %>
+  <% end %>
+</div>

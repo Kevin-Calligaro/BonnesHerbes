@@ -18,7 +18,7 @@
             <%= plant.done %> %>
           <% end %>
 
-          <%=  garden_vegetable.harvest.each do |harvest| %>
+          <%=  garden_vegetable.harvests.each do |harvest| %>
             <%= harvest.comment %>
             <%= harvest.date %>
             <%= harvest.quantity %>
@@ -28,6 +28,7 @@
         </div>
     <% end %>
           <%= link_to 'Supprimer la planche', row_path(row), class: 'btn btn-outline-danger btn-sm', method: 'delete', data: { confirm: 'Etes vous sur ? Vraiment ?' } %>
+          <p><%= link_to 'Ajouter un légume', new_garden_row_garden_vegetable_path(@garden.id, row), class: 'btn btn-primary' %></p>
 
     </div>
   <% end %>

@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   # resources :rows, only: [:index, :show]
 
   resources :gardens, only: [:index, :show, :new, :create, :destroy] do
-    resources :rows, only: [:new, :create, :show, :index]
+    resources :rows, only: [:new, :create, :show, :index] do
+      resources :garden_vegetables, only: [:new, :create, :show, :index]
+    end
   end
-  # resources :garden_vegetables, only: [:create, :destroy]
   resources :rows, only: [:destroy]
+  resources :garden_vegetables, only: [:destroy]
 end
 

@@ -5,6 +5,10 @@ class RowsController < ApplicationController
     @rows = Row.all
   end
 
+  def show
+    @garden_vegetables = GardenVegetable.all
+  end
+
   def new
     @row = Row.new
   end
